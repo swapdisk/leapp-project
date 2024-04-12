@@ -85,6 +85,8 @@ controller_inventory_sources:
     source_vars:
       regions:
         - "{{ workshop_ec2_region }}"
+      exclude_filters:
+        tag:short_name: ansible-1
       filters:
         tag:guid: "{{ lookup('env', 'AWX_HOST').split('.')[1] }}"
         tag:Student: "{{ lookup('env', 'AWX_HOST').split('.')[0] | urlsplit('hostname') }}"
