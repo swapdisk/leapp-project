@@ -24,6 +24,10 @@
       become: false
       register: node1_node_facts
 
+    - name: Debug output - node1_node_facts
+      ansible.builtin.debug:
+        msg: "{{ node1_node_facts }}"
+
     - name: Grab ec2_instance_info for node2
       amazon.aws.ec2_instance_info:
         region: "{{ ec2_region }}"
