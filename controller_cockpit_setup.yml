@@ -16,7 +16,7 @@
 
     - name: Grab ec2_instance_info for node1
       amazon.aws.ec2_instance_info:
-        region: "{{ ec2_region }}"
+        region: "{{ workshop_ec2_region }}"
         filters:
           instance-state-name: running
           "tag:Workshop_node1": "{{ instances.tags.Workshop | lower }}-node1"
