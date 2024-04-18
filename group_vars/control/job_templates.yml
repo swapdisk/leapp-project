@@ -119,6 +119,34 @@ controller_templates:
           variable: bigboot_size
           required: true
     ask_limit_on_launch: true
+  - name: OS / Shrink Logical Volumes
+    project: Project Leapp
+    playbook: shrink_lv.yml
+    inventory: Workshop Inventory
+    credentials:
+      - Workshop Credential
+    extra_vars:
+      shrink_lv_devices:
+        - device: /dev/mapper/VolGroup00-homeVol
+          size: 1G
+    ask_variables_on_launch: true
+    survey_enabled: true
+    survey:
+      name: ''
+      description: ''
+      spec:
+        - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
+          type: multiplechoice
+          default: ''
+          variable: rhel_inventory_group
+          choices:
+            - ALL_rhel
+            - rhel7
+            - rhel8
+            - rhel9
+          required: true
+    ask_limit_on_launch: true
   - name: PETS / App Install
     project: Project Leapp
     playbook: pet_clinic.yml

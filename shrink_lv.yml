@@ -1,0 +1,9 @@
+---
+- name: Shrink Logical Volumes playbook
+  hosts: "{{ rhel_inventory_group | default(omit) }}"
+  strategy: free
+  gather_facts: true
+  become: true
+  roles:
+    - infra.lvm_snapshots.shrink_lv
+...
