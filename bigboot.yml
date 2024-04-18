@@ -1,0 +1,11 @@
+---
+- name: Extend boot partition playbook
+  hosts: "{{ rhel_inventory_group | default(omit) }}"
+  strategy: free
+  gather_facts: true
+  become: true
+  vars:
+    bigboot_size: 500M
+  roles:
+    - infra.lvm_snapshots.bigboot
+...
