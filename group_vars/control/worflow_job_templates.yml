@@ -13,7 +13,9 @@ controller_workflows:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
@@ -47,7 +49,9 @@ controller_workflows:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
