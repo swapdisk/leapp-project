@@ -18,9 +18,10 @@ collections:
 - name: https://github.com/heatmiser/ansible-snapshot.git
   type: git
   version: main
-- name: infra.lvm_snapshots
+#- name: infra.lvm_snapshots
 # version: "2.0.2" # Version range identifiers (default: ``*``)
 # source: https://galaxy.ansible.com # The Galaxy URL to pull the collection from (default: ``--api-server`` from cmdline)
+- name: https://github.com/swapdisk/bob_lvm_snapshots
   type: git
-  version: dev01_testing
+  version: fix_lvm_config
 ...
