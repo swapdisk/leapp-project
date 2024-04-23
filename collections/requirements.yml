@@ -23,5 +23,5 @@ collections:
 # source: https://galaxy.ansible.com # The Galaxy URL to pull the collection from (default: ``--api-server`` from cmdline)
 - name: https://github.com/swapdisk/bob_lvm_snapshots
   type: git
-  version: fix_lvm_config
+  version: fix_image_copy
 ...
