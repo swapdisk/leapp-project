@@ -12,7 +12,9 @@ controller_templates:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
@@ -32,7 +34,9 @@ controller_templates:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
@@ -56,7 +60,9 @@ controller_templates:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
@@ -81,7 +87,9 @@ controller_templates:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
@@ -159,7 +167,9 @@ controller_templates:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
@@ -198,7 +208,9 @@ controller_templates:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
@@ -207,7 +219,9 @@ controller_templates:
             - rhel9
           required: true
         - question_name: Snapshot action
+          question_description: Choose the snapshot action to be performed.
           type: multiplechoice
+          default: ''
           variable: lvm_snapshots_action
           choices:
             - check
@@ -233,7 +247,9 @@ controller_templates:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
@@ -268,7 +284,9 @@ controller_templates:
       description: ''
       spec:
         - question_name: Select inventory to update
+          question_description: Choose the inventory group to be updated.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
@@ -297,7 +315,9 @@ controller_templates:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
@@ -325,7 +345,9 @@ controller_templates:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
@@ -350,7 +372,9 @@ controller_templates:
       description: ''
       spec:
         - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
           type: multiplechoice
+          default: ''
           variable: rhel_inventory_group
           choices:
             - ALL_rhel
