@@ -90,6 +90,63 @@ controller_templates:
             - rhel9
           required: true
     ask_limit_on_launch: true
+  - name: OS / Bigboot
+    project: Project Leapp
+    playbook: bigboot.yml
+    inventory: Workshop Inventory
+    credentials:
+      - Workshop Credential
+    survey_enabled: true
+    survey:
+      name: ''
+      description: ''
+      spec:
+        - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
+          type: multiplechoice
+          default: ''
+          variable: rhel_inventory_group
+          choices:
+            - ALL_rhel
+            - rhel7
+            - rhel8
+            - rhel9
+          required: true
+        - question_name: Boot increase size
+          question_description: Incremental amount by which boot partition is to be increased. Can be either in bytes or with upper-case letter suffix (1024 bases). See unit options type iec of numfmt.
+          type: text
+          default: 500M
+          variable: bigboot_size
+          required: true
+    ask_limit_on_launch: true
+  - name: OS / Shrink Logical Volumes
+    project: Project Leapp
+    playbook: shrink_lv.yml
+    inventory: Workshop Inventory
+    credentials:
+      - Workshop Credential
+    extra_vars:
+      shrink_lv_devices:
+        - device: /dev/mapper/VolGroup00-homeVol
+          size: 1G
+    ask_variables_on_launch: true
+    survey_enabled: true
+    survey:
+      name: ''
+      description: ''
+      spec:
+        - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
+          type: multiplechoice
+          default: ''
+          variable: rhel_inventory_group
+          choices:
+            - ALL_rhel
+            - rhel7
+            - rhel8
+            - rhel9
+          required: true
+    ask_limit_on_launch: true
   - name: PETS / App Install
     project: Project Leapp
     playbook: pet_clinic.yml
