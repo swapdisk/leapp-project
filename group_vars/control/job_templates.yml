@@ -192,7 +192,7 @@ controller_templates:
       snapshot_create_volumes:
         - vg: VolGroup00
           lv: rootVol
-          size: 3G
+          size: 4G
         - vg: VolGroup00
           lv: varVol
           size: 5G
