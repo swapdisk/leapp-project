@@ -202,6 +202,14 @@ controller_workflows:
         extra_data:
           rhel_inventory_group: "ALL_rhel"
         always_nodes:
+          - Extend logical volumes and filesystems
+      - identifier: Extend logical volumes and filesystems
+        unified_job_template: UTILITY / Extend logical volumes and filesystems
+        organization: Default
+        all_parents_must_converge: false
+        extra_data:
+          rhel_inventory_group: "ALL_rhel"
+        always_nodes:
           - Setup miscellaneous host configuration
       - identifier: Setup miscellaneous host configuration
         unified_job_template: Z / SETUP / Miscellaneous host config
