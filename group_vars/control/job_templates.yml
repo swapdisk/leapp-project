@@ -192,7 +192,7 @@ controller_templates:
       snapshot_create_volumes:
         - vg: VolGroup00
           lv: rootVol
-          size: 3G
+          size: 4G
         - vg: VolGroup00
           lv: varVol
           size: 5G
@@ -360,6 +360,35 @@ controller_templates:
     extra_vars:
       full_storage_device_name: /dev/nvme0n1
       perform_resize: true
+  - name: UTILITY / Extend logical volumes and filesystems
+    project: Project Leapp
+    playbook: filesystem_extend.yml
+    inventory: Workshop Inventory
+    credentials:
+      - Workshop Credential
+    survey_enabled: true
+    survey:
+      name: ''
+      description: ''
+      spec:
+        - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
+          type: multiplechoice
+          default: ''
+          variable: rhel_inventory_group
+          choices:
+            - ALL_rhel
+            - rhel7
+            - rhel8
+            - rhel9
+          required: true
+    ask_limit_on_launch: true
+    ask_variables_on_launch: true
+    extra_vars:
+      filesystem_extend_volumes:
+        - vg: VolGroup00
+          lv: varVol
+          size: 8G
   - name: Z / SETUP / Miscellaneous host config
     project: Project Leapp
     playbook: misc_host_config.yml

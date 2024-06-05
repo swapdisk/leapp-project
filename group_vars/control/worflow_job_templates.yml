@@ -100,6 +100,60 @@ controller_workflows:
         all_parents_must_converge: false
         type: inventory_source
         success_nodes: []
+  - name: OS / Upgrade 7-8-9
+    description: Workflow for Snapshot and Leapp Upgrade 7-8 and 8-9
+    extra_vars:
+      lvm_snapshots_action: create
+    inventory: Workshop Inventory
+    state: present
+    organization: Default
+    survey_enabled: true
+    survey_spec:
+      name: ''
+      description: ''
+      spec:
+        - question_name: Select inventory group
+          question_description: Use to limit job to hosts that are members of the selected host group.
+          type: multiplechoice
+          default: ''
+          variable: rhel_inventory_group
+          choices:
+            - ALL_rhel
+            - rhel7
+            - rhel8
+            - rhel9
+          required: true
+    ask_limit_on_launch: true
+    simplified_workflow_nodes:
+      - identifier: UTILITY / Snapshot Instance
+        unified_job_template: UTILITY / Snapshot Instance
+        organization: Default
+        all_parents_must_converge: false
+        success_nodes:
+          - OS / Upgrade 7-8
+      - identifier: OS / Upgrade 7-8
+        unified_job_template: OS / Upgrade
+        organization: Default
+        all_parents_must_converge: false
+        success_nodes:
+          - OS / Remediation
+      - identifier: OS / Remediation
+        unified_job_template: OS / Remediation
+        organization: Default
+        all_parents_must_converge: false
+        success_nodes:
+          - OS / Analysis
+      - identifier: OS / Analysis
+        unified_job_template: AUTO / 01 Analysis
+        organization: Default
+        all_parents_must_converge: false
+        success_nodes:
+          - OS / Upgrade 8-9
+      - identifier: OS / Upgrade 8-9
+        unified_job_template: OS / Upgrade
+        organization: Default
+        all_parents_must_converge: false
+        success_nodes: []
   - name: Z / SETUP / Workshop deployment
     description: Workflow for workshop deployment
     inventory: Workshop Inventory
@@ -143,6 +197,14 @@ controller_workflows:
           - Extend partition and resize physical volume
       - identifier: Extend partition and resize physical volume
         unified_job_template: UTILITY / Extend partition and resize physical volume
+        organization: Default
+        all_parents_must_converge: false
+        extra_data:
+          rhel_inventory_group: "ALL_rhel"
+        always_nodes:
+          - Extend logical volumes and filesystems
+      - identifier: Extend logical volumes and filesystems
+        unified_job_template: UTILITY / Extend logical volumes and filesystems
         organization: Default
         all_parents_must_converge: false
         extra_data:
