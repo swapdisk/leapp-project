@@ -5,7 +5,7 @@
   gather_facts: true
   become: true
   vars:
-    bigboot_size: 500M
+    bigboot_partition_size: 1.0G
   roles:
     - infra.lvm_snapshots.bigboot
 ...
