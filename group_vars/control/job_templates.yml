@@ -120,11 +120,11 @@ controller_templates:
             - rhel8
             - rhel9
           required: true
-        - question_name: Boot increase size
-          question_description: Incremental amount by which boot partition is to be increased. Can be either in bytes or with upper-case letter suffix (1024 bases). See unit options type iec of numfmt.
+        - question_name: Size of boot partition
+          question_description: Enter the minimum required size of the boot partition. If the boot partition is already equal to or greater than the given size, the job will end gracefully making no changes. The value can be either in bytes or with optional single letter suffix (1024 bases) using human_to_bytes filter plugin.
           type: text
-          default: 500M
-          variable: bigboot_size
+          default: 1.0G
+          variable: bigboot_partition_size
           required: true
     ask_limit_on_launch: true
   - name: OS / Shrink Logical Volumes
