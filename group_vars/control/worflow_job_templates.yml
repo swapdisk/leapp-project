@@ -232,7 +232,7 @@ controller_workflows:
         all_parents_must_converge: false
         extra_data:
           rhel_inventory_group: "rhel8"
-          release_version: "8.10"
+          release_version: 8.10
         success_nodes:
           - OS Remediation - rhel8
       - identifier: OS Remediation - rhel8
