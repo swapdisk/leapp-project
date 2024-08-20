@@ -22,6 +22,10 @@ controller_templates:
             - rhel8
             - rhel9
           required: true
+        - question_name: Target OS release version
+          type: float
+          variable: release_version
+          required: false
     ask_limit_on_launch: true
   - name: AUTO / 01 Analysis
     project: Project Leapp
