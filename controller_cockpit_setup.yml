@@ -133,11 +133,13 @@
         enabled: false
 
     - name: Install Cockpit
-      ansible.builtin.package:
+      ansible.builtin.yum:
         name:
           - cockpit
           - cockpit-system
-        state: present
+          - cockpit-leapp
+        state: latest
+        enablerepo: leapp-supplements
 
     - name: Enable and start cockpit console service
       ansible.builtin.service:
