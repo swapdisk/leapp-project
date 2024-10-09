@@ -20,6 +20,7 @@ collections:
   type: git
   version: main
 - name: infra.lvm_snapshots
-  version: "2.1.0" # Version range identifiers (default: ``*``)
-  source: https://galaxy.ansible.com # The Galaxy URL to pull the collection from (default: ``--api-server`` from cmdline)
+  type: git
+  source: https://github.com/swapdisk/bob_lvm_snapshots.git
+  version: scratch
 ...
