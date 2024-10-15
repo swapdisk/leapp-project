@@ -22,5 +22,5 @@ collections:
 - name: infra.lvm_snapshots
   type: git
   source: https://github.com/swapdisk/bob_lvm_snapshots.git
-  version: scratch
+  version: pvmove_fix
 ...
