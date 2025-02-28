@@ -28,6 +28,7 @@
       - leapp_rpms_with_rsa_sha1_detected
       - leapp_unavailable_kde
       - leapp_vdo_check_needed
+      - leapp_remote_using_root
 
   tasks:
     - name: Perform remediations on the system
